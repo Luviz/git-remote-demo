@@ -24,6 +24,7 @@ jobs:
           path: |
             output
   Release-Artifact:
+    permissions: write-all
     runs-on: ubuntu-latest
     needs: [Run-Python-Code]
     steps:
