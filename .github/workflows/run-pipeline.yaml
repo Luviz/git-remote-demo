@@ -23,7 +23,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: ls
-      - run: python someAction.py
+      - name: build Textfile
+        run: python someAction.py
       - name: Archive text artifact
         uses: actions/upload-artifact@v4
         with:
