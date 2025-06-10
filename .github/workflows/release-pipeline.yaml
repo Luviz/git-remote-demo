@@ -35,6 +35,8 @@ jobs:
         with:
           name: my-output
       - run: ls
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       - name: "Tag Version"
         uses: christophebedard/tag-version-commit@v1
         with:
@@ -44,3 +46,4 @@ jobs:
         with:
           artifacts: "my-output.zip"
           body: "here is some text"
+          tag: ${SHORT_SHA}
