@@ -2,8 +2,6 @@ name: Release
 run-name: "Release Version"
 on:
   pull_request:
-    branches:
-      - feat/*
     types: closed
 jobs:
   Run-Python-Code:
