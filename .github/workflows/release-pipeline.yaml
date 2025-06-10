@@ -42,3 +42,4 @@ jobs:
         with:
           artifacts: "my-output.zip"
           body: "here is some text"
+          tag: "test01"
