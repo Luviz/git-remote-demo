@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'running someAction'
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - run: ls
       - run: python someAction.py
       - name: Archive text artifact
