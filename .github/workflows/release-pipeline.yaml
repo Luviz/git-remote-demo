@@ -34,6 +34,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-output
+      - run: ls
       - name: "Tag Version"
         uses: christophebedard/tag-version-commit@v1
         with:
@@ -41,7 +42,5 @@ jobs:
           version_tag_prefix: "v"
       - uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "my-output.zip"
           body: "here is some text"
-          tag: "test01"
