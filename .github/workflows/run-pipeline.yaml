@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'running someAction'
+      - run: ls
       - run: python someAction.py
       - name: Archive text artifact
         uses: actions/upload-artifact@v4
