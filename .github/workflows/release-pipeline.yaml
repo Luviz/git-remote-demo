@@ -1,0 +1,33 @@
+name: Release
+run-name: "Release Version"
+on:
+  pull_request:
+    branches:
+      - feat/*
+    types: closed
+jobs:
+  Run-Python-Code:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'running someAction'
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Textfile
+        run: python someAction.py
+      - name: Archive text artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-output
+          path: |
+            output
+  Release-Artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: my-output
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "my-output.zip"
+          body: "here is some text"
