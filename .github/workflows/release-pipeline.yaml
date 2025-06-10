@@ -33,11 +33,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: my-output
-      # - name: "Tag Version"
-      #   uses: christophebedard/tag-version-commit@v1
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     version_tag_prefix: "v"
+      - name: "Tag Version"
+        uses: christophebedard/tag-version-commit@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version_tag_prefix: "v"
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "my-output.zip"
